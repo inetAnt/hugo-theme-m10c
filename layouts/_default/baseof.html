@@ -14,9 +14,6 @@
     {{ template "_internal/google_analytics.html" . }}
     {{ template "_internal/twitter_cards.html" . }}
     {{ template "_internal/opengraph.html" . }}
-  {{ if isset .Site.Params "matomo" }}
-    {{ partial "header/matomo.html" . }}
-  {{ end }}
   </head>
   <body>
     <header class="app-header">
@@ -48,5 +45,8 @@
         {{ .Content }}
       {{ end }}
     </main>
+    {{ if isset .Site.Params "matomo" }}
+      {{ partial "header/matomo.html" . }}
+    {{ end }}
   </body>
 </html>
